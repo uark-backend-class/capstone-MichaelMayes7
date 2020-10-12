@@ -1,0 +1,27 @@
+<h1>Users List</h1>
+<a href="/add-edit-user" class="btn btn-primary">Add New User</a>
+<br/>
+<br/>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID:</th>
+      <th>Username:</th>
+      
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each users}}
+      <tr>
+        <td>{{this.id}}</td>
+        <td>{{this.username}}</td>
+        
+        <td>
+          <a href="/edit-user/{{this.id}}" class="btn btn-secondary">Edit</a>
+          <a href="/delete-user/{{this.id}}" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

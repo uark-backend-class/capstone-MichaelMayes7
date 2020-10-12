@@ -1,0 +1,7 @@
+<h1>Add or Edit User</h1>
+<form action="/update-user" method="POST">
+  Username <input class="form-control" type="text" name="username" id="username" value="{{user.username}}" />
+  <input type="hidden" name="id" value="{{user.id}}" />
+  <br/>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,27 @@
+<h1>My GradeBook</h1>
+<a href="/add" class="btn btn-primary">Add Student</a>
+<br/>
+<br/>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID:</th>
+      <th>First Name:</th>
+      <th>Last Name:</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each students}}
+      <tr>
+        <td>{{this.id}}</td>
+        <td>{{this.first_name}}</td>
+        <td>{{this.last_name}}</td>
+        <td>
+          <a href="/edit/{{this.id}}" class="btn btn-secondary">Edit</a>
+          <a href="/delete/{{this.id}}" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
