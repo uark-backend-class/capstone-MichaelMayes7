@@ -6,6 +6,10 @@ exports.listUsers = async (req, res) => {
     res.render('users-list', { users });
 };
 
+exports.listMyStudents = (req, res) => {
+    res.render('list')
+}
+
 exports.addUser = (req, res) => {
     res.render('add-edit-user');
 };
@@ -23,5 +27,5 @@ exports.editUser = async (req, res) => {
 exports.deleteUser = async (req, res) => {
     let user = await User.findByPk(req.params.id);
     await user.destroy();
-    res.redirect('users-list');
+    res.redirect('/');
 };
