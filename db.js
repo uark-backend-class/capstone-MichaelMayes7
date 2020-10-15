@@ -14,8 +14,8 @@ const User = UserModel(sequelize, Sequelize);
 //     });
 // }
 
-// User.hasMany(Student);
-// Student.belongsTo(User);
+User.hasMany(Student);
+Student.belongsTo(User);
 
 // Student.associate = models => {
 //     Student.belongsTo(models.User);

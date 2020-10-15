@@ -24,8 +24,8 @@ exports.update = async (req, res) => {
 };
 
 exports.editView = async (req, res) => {
-    let expense = await Expense.findByPk(req.params.id, { raw: true });
-    res.render('add-edit', { expense });
+    let user = await User.findByPk(req.params.id, { raw: true });
+    res.render('add-edit-user', { user });
 };
 
 exports.delete = async (req, res) => {
