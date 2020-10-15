@@ -8,15 +8,18 @@ const sequelize = new Sequelize('postgres://postgres:Database5216@localhost:4200
 const Student = StudentModel(sequelize, Sequelize);
 const User = UserModel(sequelize, Sequelize);
 
-User.associate = models => {
-    User.hasMany(models.Student, {
-        onDelete: "cascade"
-    });
-}
+// User.associate = models => {
+//     User.hasMany(models.Student, {
+//         onDelete: "cascade"
+//     });
+// }
 
-Student.associate = models => {
-    Student.belongsTo(models.User);
-}
+// User.hasMany(Student);
+// Student.belongsTo(User);
+
+// Student.associate = models => {
+//     Student.belongsTo(models.User);
+// }
 
 // Create our tables using sync
 sequelize.sync().then(() => console.log("Tables are created."));

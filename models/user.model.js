@@ -1,13 +1,14 @@
 module.exports = (sequelize, Sequelize) => {
     return sequelize.define('user', {
-      id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-      },
-      username: Sequelize.STRING,
-    }, { freezeTableName: true });
-  }
+        id: {
+            type: Sequelize.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        // username: Sequelize.STRING,
+        email: Sequelize.STRING
+    });
+};
 
 
   
