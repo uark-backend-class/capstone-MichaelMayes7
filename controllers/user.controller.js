@@ -13,7 +13,7 @@ exports.getAll = async (req, res) => {
         where: { userId: req.user.id }
     });
     // render our list view
-    res.render('list', { numUsers, users, total });
+    res.render('users-list', { numUsers, users, total });
 };
 
 exports.update = async (req, res) => {

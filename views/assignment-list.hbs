@@ -1,0 +1,28 @@
+<h1>Assignment List</h1>
+<a href="/add-edit-assignment" class="btn btn-primary">Add/Edit New Assignment</a>
+<a href="/" class="btn btn-info">See My Students</a>
+<br/>
+<br/>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID:</th>
+      <th>Description:</th>
+      <th>Due Date:</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each assignments}}
+      <tr>
+        <td>{{this.id}}</td>
+        <td>{{this.description}}</td>
+        <td>{{this.due_date}}</td>
+        
+        <td>
+          <a href="/edit-assignment/{{this.id}}" class="btn btn-secondary">Edit</a>
+          <a href="/delete-assignment/{{this.id}}" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

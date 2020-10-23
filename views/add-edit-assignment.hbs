@@ -1,0 +1,8 @@
+<h1>Add Assignment</h1>
+<form action="/update-assignment" method="POST">
+  Description <input class="form-control" type="text" name="description" id="description" value="{{assignment.description}}" />
+  Due Date <input class="form-control" type="text" name="due_date" id="due_date" value="{{assignment.due_date}}" />
+  <input type="hidden" name="id" value="{{assignment.id}}" />
+  <br/>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
