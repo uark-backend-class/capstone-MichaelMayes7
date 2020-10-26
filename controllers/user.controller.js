@@ -16,6 +16,22 @@ exports.getAll = async (req, res) => {
     res.render('users-list', { numUsers, users, total });
 };
 
+exports.addStudentAssignmentInstace = async (req, res) => {
+    try { let student = await Student.findByPk(req.params.id, { raw: true });
+     let assignment = await Student.findByPk(req.params.userId, {raw: true});
+     let user = await User.findByPk(req.params.id, { raw: true });
+     const studentAssignment = Assignment.create({
+         assignment_name: `${assignment.id}`,
+         student_name: `${student.first_name}${student.last_name}`
+     });
+     res.render('list', { students, studentAssignment });
+ } catch (error) {
+     console.log(error.message);
+     }
+ }
+
+
+
 exports.update = async (req, res) => {
     // req.user.id
     req.body.userId = req.user.id;

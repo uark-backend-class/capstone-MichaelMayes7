@@ -1,5 +1,7 @@
 const db = require('../db');
 const Assignment = db.Assignment;
+const User = db.User;
+
 
 exports.addAssignment = (req, res) => {
     res.render('add-edit-assignment');
@@ -9,9 +11,10 @@ exports.addAssignment = (req, res) => {
 exports.getAllAssignments = async (req, res) => {
     // Get all of our expenses
     try {
+    let user = await Assignment.findByPk(req.params.userId);
     const assignments = await Assignment.findAll({
         raw: true,
-        where: { userId: req.user.id },
+        where: { userId: req.assignment.userId },
         where: { assigmentId: req.assignment.id },
         
     });
@@ -20,7 +23,7 @@ exports.getAllAssignments = async (req, res) => {
     //     where: { assignmentId: req.assignment.id }
     // });
     // render our list view
-    res.render('assignment-list', { assignments });
+    res.render('assignment-list', { user, assignments });
 } catch (error) {
     console.log(error.message)
 }

@@ -12,12 +12,16 @@ exports.addStudent = (req, res) => {
 };
 
 exports.addStudentAssignmentInstace = async (req, res) => {
-    let student = await Student.findByPk(req.params.id, { raw: true });
+   try { let student = await Student.findByPk(req.params.id, { raw: true });
+    let assignment = await Student.findByPk(req.params.userId, {raw: true});
     const studentAssignment = Assignment.create({
-        assignment_name: `${studentAssignment.id}`,
+        assignment_name: `${assignment.id}`,
         student_name: `${student.first_name}${student.last_name}`
     });
     res.render('list', { students, studentAssignment });
+} catch (error) {
+    console.log(error.message);
+    }
 }
 exports.updateStudent = async (req, res) => {
     req.body.userId = req.user.id;

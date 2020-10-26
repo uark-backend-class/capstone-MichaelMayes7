@@ -25,6 +25,8 @@ router.post('/update', studentController.updateStudent);
 router.get('/edit/:id', studentController.editStudent);
 router.get('/delete/:id', studentController.deleteStudent);
 
+router.get('/add-edit-assignment', studentController.addStudentAssignmentInstace);
+
 router.get('/users-list', userController.listUsers);
 router.get('/add-edit-user', userController.addUser);
 router.post('/update-user', userController.updateUser);
@@ -34,7 +36,7 @@ router.get('/auth/logout', (req, res) => {
     req.logout();
     res.send('Logout successful');
 });
-router.get('/add-assignment', assignmentController.addAssignment);
+// router.get('/add-assignment', assignmentController.addAssignment);
 
 router.get('/assignment-list', assignmentController.getAllAssignments);
 // router.get('/add-edit-assignment')(assignmentController.editViewAssignments(assignment, { through: { role: 'manager' }}));
