@@ -11,11 +11,11 @@ exports.addAssignment = (req, res) => {
 exports.getAllAssignments = async (req, res) => {
     // Get all of our expenses
     try {
-    let user = await Assignment.findByPk(req.params.userId);
+    
     const assignments = await Assignment.findAll({
         raw: true,
-        where: { userId: req.assignment.userId },
-        where: { assigmentId: req.assignment.id },
+        where: { userId: req.user.id },
+        // where: { assigmentId: req.assignment.id },
         
     });
     // const numAssignments = await Assignment.count({ where: { assignmentId: req.assignment.id } });
@@ -23,7 +23,7 @@ exports.getAllAssignments = async (req, res) => {
     //     where: { assignmentId: req.assignment.id }
     // });
     // render our list view
-    res.render('assignment-list', { user, assignments });
+    res.render('assignment-list', { assignments });
 } catch (error) {
     console.log(error.message)
 }
@@ -32,7 +32,8 @@ exports.getAllAssignments = async (req, res) => {
 exports.updateAssignment = async (req, res) => {
     // req.user.id
     try {
-    req.body.assignmentId = req.assignment.id;
+        req.body.userId = req.user.id;
+    // req.body.assignmentId = req.assignment.id;
     await Assignment.upsert(req.body);
     res.redirect('assignment-list');
 } catch (error) {

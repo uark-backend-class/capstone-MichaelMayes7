@@ -9,19 +9,22 @@
   <thead>
     <tr>
       <th>ID:</th>
+      <th>Description:</th>
+      <th>Due Date:</th>
       <th>Percentage:</th>
       <th>Letter Grade:</th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
-    {{#each grades}}
+    {{#each assignments}}
       <tr>
         <td>{{this.id}}</td>
-        <td>{{this.percentage}}</td>
-        <td>{{this.letter_grade}}</td>
+        <td>{{this.description}}</td>
+        <td>{{this.due_date}}</td>
+        <td>{{this.grade.percentage}}</td>
+        <td>{{this.grade.letter_grade}}</td>
         <td>
-          <a href="/add-edit-grade" class="btn btn-primary">Add/Edit New Grade</a>
+          <a href="/add-edit-grade/{{../student.id}}/{{this.id}}" class="btn btn-primary">Add/Edit New Grade</a>
           <a href="/edit-grade/{{this.id}}" class="btn btn-secondary">Edit</a>
           <a href="/delete-grade/{{this.id}}" class="btn btn-danger">Delete</a>
         </td>

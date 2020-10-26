@@ -6,12 +6,7 @@ module.exports = (sequelize, Sequelize) => {
         autoIncrement: true,
 
       },
-      userId: {
-          type: Sequelize.INTEGER,
-          foreignKey: true,
-          allowNull: false,
-
-      },
+      
       description: Sequelize.STRING,
       due_date: Sequelize.STRING,
     }, { freezeTableName: true });

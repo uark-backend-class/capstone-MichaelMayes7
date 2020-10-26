@@ -25,7 +25,7 @@ router.post('/update', studentController.updateStudent);
 router.get('/edit/:id', studentController.editStudent);
 router.get('/delete/:id', studentController.deleteStudent);
 
-router.get('/add-edit-assignment', studentController.addStudentAssignmentInstace);
+// router.get('/add-edit-assignment/:id', studentController.addStudentAssignmentInstace);
 
 router.get('/users-list', userController.listUsers);
 router.get('/add-edit-user', userController.addUser);
@@ -40,18 +40,18 @@ router.get('/auth/logout', (req, res) => {
 
 router.get('/assignment-list', assignmentController.getAllAssignments);
 // router.get('/add-edit-assignment')(assignmentController.editViewAssignments(assignment, { through: { role: 'manager' }}));
-router.get('/add-edit-assignment', assignmentController.editViewAssignments);
+router.get('/add-edit-assignment', assignmentController.addAssignment);
 router.post('/update-assignment', assignmentController.updateAssignment);
 router.get('/edit-assignment/:id', assignmentController.editAssignment);
 router.get('/delete-assignment/:id', assignmentController.deleteAssignment);
 
-router.get('/grade-list', gradeController.getAllGrades);
-router.get('/add-grade', gradeController.addGrade);
-router.get('/grade-list', gradeController.listGrades);
+// router.get('/grade-list', gradeController.getAllGrades);
+router.get('/add-edit-grade/:studentId/:assignmentId', gradeController.addGrade);
+router.get('/grades/:id', gradeController.listGrades);
 // router.get('/add-edit-assignment')(assignmentController.editViewAssignments(assignment, { through: { role: 'manager' }}));
-router.get('/add-edit-grade', gradeController.editViewGrade);
+// router.get('/add-edit-grade:id', gradeController.editViewGrade);
 router.post('/update-grade', gradeController.updateGrade);
-router.get('/edit-grade/:id', gradeController.editGrade);
+router.get('/edit-grade/:studentId/assignment:id', gradeController.editGrade);
 router.get('/delete-grade/:id', gradeController.deleteGrade);
 
 module.exports = router;

@@ -20,7 +20,7 @@ exports.addStudentAssignmentInstace = async (req, res) => {
     });
     res.render('list', { students, studentAssignment });
 } catch (error) {
-    console.log(error.message);
+    console.log(error);
     }
 }
 exports.updateStudent = async (req, res) => {

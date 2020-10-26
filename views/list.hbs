@@ -1,9 +1,9 @@
 <h1>Student List</h1><a href="/auth/logout"class="btn btn-danger">Log out</a><br/>
 <a href="/add" class="btn btn-primary">Add Student</a>
-<a href="/add-edit-assignment" class="btn btn-primary">Add/Edit New Assignment</a>
 <a href="/users-list" class="btn btn-info">See Users</a>
 <a href="/assignment-list" class="btn btn-info">See Assignments</a>
 <a href="/add-edit-grade" class="btn btn-info">Add/Edit Grade</a>
+<a href="/add-edit-assignment/{{this.id}}" class="btn btn-primary">Add/Edit New Assignment</a>
 <br/>
 <br/>
 <table class="table">
@@ -21,9 +21,9 @@
         <td>{{this.id}}</td>
         <td>{{this.first_name}}</td>
         <td>{{this.last_name}}</td>
-        <td>{{this.studentAssignment.assignment_name}}</td>
+        {{!-- <td>{{this.studentAssignment.assignment_name}}</td> --}}
         <td>
-          <a href="/add-edit-assignment" class="btn btn-primary">Add/Edit New Assignment</a>
+          <a href="/grades/{{this.id}}" class="btn btn-secondary">Grades</a>
           <a href="/edit/{{this.id}}" class="btn btn-secondary">Edit</a>
           <a href="/delete/{{this.id}}" class="btn btn-danger">Delete</a>
         </td>
