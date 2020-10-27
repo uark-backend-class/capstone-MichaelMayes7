@@ -30,7 +30,7 @@ exports.updateGrade = async (req, res) => {
     try {
     // req.body.gradeId = req.grade.id;
     await Grade.upsert(req.body);
-    res.redirect('grade-list');}
+    res.redirect('/');}
     catch (error) {
         console.log(error.message);
     }
@@ -69,6 +69,7 @@ exports.addGrade = async (req, res) => {
     let student =  await Student.findByPk(req.params.studentId);
     let assignment = await Assignment.findByPk(req.params.assignmentId);
     let grade = await Grade.findByPk(req.params.id);
+    console.log(grade);
 
     res.render('add-edit-grade', { student, assignment, grade });
 };

@@ -17,7 +17,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.urlencoded({ extended: true }));
-app.engine('hbs', hbs({ extname: 'hbs' }));
+app.engine('hbs', hbs({ extname: 'hbs', runtimeOptions: {allowProtoPropertiesByDefault: true, allowProtoMethodsByDefault: true}}));
 app.set('view engine', 'hbs');
 
 app.use('/', routes);
