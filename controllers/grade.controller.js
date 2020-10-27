@@ -28,8 +28,7 @@ const Student = db.Student;
 exports.updateGrade = async (req, res) => {
     
     try {
-    req.body.userId = req.user.id;
-    req.body.gradeId = req.grade.id;
+    // req.body.gradeId = req.grade.id;
     await Grade.upsert(req.body);
     res.redirect('grade-list');}
     catch (error) {
@@ -69,16 +68,16 @@ exports.listGrades = async (req, res) => {
 exports.addGrade = async (req, res) => {
     let student =  await Student.findByPk(req.params.studentId);
     let assignment = await Assignment.findByPk(req.params.assignmentId);
-    let grade = await Grade.findByPk(req.params.id)
+    let grade = await Grade.findByPk(req.params.id);
 
     res.render('add-edit-grade', { student, assignment, grade });
 };
 
-exports.updateGrade = async (req, res) => {
-    
-    let grade = await Grade.upsert(req.body);
-    res.redirect('grade-list', { grade });
-};
+// exports.updateGrade = async (req, res) => {
+//     req.body.assignmentId = req.assignment.id;
+//     await Grade.upsert(req.body);
+//     res.redirect('grade-list');
+// };
 
 exports.editGrade = async (req, res) => {
     let grade = await Grade.findByPk(req.params.id, { raw: true });
