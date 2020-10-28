@@ -28,11 +28,18 @@ const Student = db.Student;
 exports.updateGrade = async (req, res) => {
     console.log(req.body);
     try {
-        
-    // req.body.gradeId = req.grade.id;
-    await Grade.upsert(req.body);
+    if (req.body.studentId == '') {
+        delete req.body.studentId;
+    } 
     
-    res.redirect('/');}
+    if (req.body.assignmentId == '') {
+        delete req.body.assignmentId;
+    }
+    // req.body.gradeId = req.grade.id;
+    req.body.id = Number.parseInt(req.body.id);
+   let [ grade ] = await Grade.upsert(req.body, { returning: true });
+    
+    res.redirect('/grades/'+ grade.studentId);}
     catch (error) {
         console.log(error.message);
     }
