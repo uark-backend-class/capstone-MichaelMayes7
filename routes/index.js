@@ -51,7 +51,7 @@ router.get('/grades/:id', gradeController.listGrades);
 // router.get('/add-edit-assignment')(assignmentController.editViewAssignments(assignment, { through: { role: 'manager' }}));
 // router.get('/add-edit-grade:id', gradeController.editViewGrade);
 router.post('/update-grade', gradeController.updateGrade);
-router.get('/edit-grade/:studentId/assignment:id', gradeController.editGrade);
+router.get('/edit-grade/:id', gradeController.editGrade);
 router.get('/delete-grade/:id', gradeController.deleteGrade);
 
 module.exports = router;

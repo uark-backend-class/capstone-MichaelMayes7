@@ -26,14 +26,17 @@ const Student = db.Student;
 // };
 
 exports.updateGrade = async (req, res) => {
-    
+    console.log(req.body);
     try {
+        
     // req.body.gradeId = req.grade.id;
     await Grade.upsert(req.body);
+    
     res.redirect('/');}
     catch (error) {
         console.log(error.message);
     }
+
 };
 
 // exports.editViewGrade = async (req, res) => {
@@ -60,7 +63,7 @@ exports.listGrades = async (req, res) => {
             assignment.grade = foundGrade;
         }
     }
-    console.log(student);
+    // console.log(student);
     res.render('grade-list', { assignments, student, });
 };
 
@@ -81,12 +84,13 @@ exports.addGrade = async (req, res) => {
 // };
 
 exports.editGrade = async (req, res) => {
+    
     let grade = await Grade.findByPk(req.params.id, { raw: true });
     res.render('add-edit-grade', { grade });
 };
 
 exports.deleteGrade = async (req, res) => {
-    let grade = await Grade.findByPk(req.grade.id);
+    let grade = await Grade.findByPk(req.params.id);
     await grade.destroy();
-    res.redirect('grade-list');
+    res.redirect('/');
 };
