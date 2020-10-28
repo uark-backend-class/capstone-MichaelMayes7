@@ -23,6 +23,6 @@ app.set('view engine', 'hbs');
 
 app.use('/', routes);
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log("Student Grade Tracker now running on port 3000");
 }) 
