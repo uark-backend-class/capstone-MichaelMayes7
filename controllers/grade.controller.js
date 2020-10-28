@@ -61,7 +61,7 @@ exports.listGrades = async (req, res) => {
         }
     }
     console.log(student);
-    res.render('grade-list', { assignments, student });
+    res.render('grade-list', { assignments, student, });
 };
 
 

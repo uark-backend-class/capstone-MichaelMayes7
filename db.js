@@ -4,9 +4,7 @@ const UserModel = require('./models/user.model');
 const AssignmentModel = require('./models/assignment.model');
 const GradeModel = require('./models/grade.model');
 
-const sequelize = new Sequelize(
-    'postgres://postgres:Database5216@localhost:4200/postgres'
-);
+const sequelize = new Sequelize(process.env.DATABASE_CONNECTION);
 
 const Student = StudentModel(sequelize, Sequelize);
 const User = UserModel(sequelize, Sequelize);
